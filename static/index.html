@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" >
+<title>Retro Game Gauntlet</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<script src="jquery-2.1.4.min.js"></script>
+<script>
+$(function() {
+    $("#game-announcer").hide();
+    $(".game-picker").click(function(e){
+        e.preventDefault();
+        var system = $(this).attr('id');
+        var systemurl = "platform/".concat(system);
+        var announcetext = "Your "+$(this).text()+" game is";
+        $('#pre-game').html(announcetext);
+        $('#game').load(systemurl);
+        $('#game-announcer').show();
+    });
+});
+</script>
+<h1>Retro Game Gauntlet</h1>
+<div id="game-announcer">
+<h3 id=pre-game>Your game is</h3>
+<h2 id="game">☃</h2>
+</div>
+<div id="game-select">
+<ul>
+<li><a class="game-picker" id="nes" href="platform/nes">NES</a></li>
+<li><a class="game-picker" id="snes" href="platform/snes">SNES</a></li>
+<li><a class="game-picker" id="gbc" href="platform/gbc">GB/GBC</a></li>
+<li><a class="game-picker" id="gamegear" href="platform/gamegear">Gamegear</a></li>
+<li><a class="game-picker" id="megadrive" href="platform/megadrive">Megadrive/Genesis</a></li>
+<li><a class="game-picker" id="tg16" href="platform/tg16">Turbografx16</a></li>
+<li><a class="game-picker" id="dos" href="platform/dos">DOS</a></li>
+<li><a class="game-picker" id="neogeo" href="platform/neogeo">NeoGeo</a></li>
+<li><a class="game-picker" id="gba" href="platform/gba">GBA</a></li>
+<li><a class="game-picker" id="mastersystem" href="platform/mastersystem">Master System</a></li>
+<li><a class="game-picker" id="c64" href="platform/c64">Commodore 64</a></li>
+<li><a class="game-picker" id="amiga" href="platform/amiga">Commodore Amiga</a></li>
+<li><a class="game-picker" id="saturn" href="platform/saturn">Sega Saturn</a></li>
+<li><a class="game-picker" id="ps1" href="platform/ps1">Playstation 1</a></li>
+<li><a class="game-picker" id="n64" href="platform/n64">Nintendo 64</a></li>
+<li><a class="game-picker" id="dreamcast" href="platform/dreamcast">Sega Dreamcast</a></li>
+<li><a class="game-picker" id="mame" href="platform/mame">MAME</a></li>
+</ul>
+<br />
+</div>
+<p>
+<strong>Original: <a href="http://s3kr.it/gauntlet.html">http://s3kr.it/gauntlet.html</a></strong>
+</p>
+<p><a href="https://github.com/lassana/rgg-go">Source code on Github</a>
+</body>
+</html>

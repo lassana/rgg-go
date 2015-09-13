@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce24c94-bfa1-41f4-a507-df8719fb3d8a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitmodules" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/retro-gauntlet" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launcher.go" afterPath="$PROJECT_DIR$/launcher.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platform/platform.go" afterPath="$PROJECT_DIR$/platform/platform.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rgg-go.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,20 +30,7 @@
     <favorites_list name="rgg-go" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="launcher.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/launcher.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08080808">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding>
-                <element signature="e#14#70#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,8 +67,11 @@
       <list>
         <option value="$PROJECT_DIR$/platform.go" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/launcher.go" />
+        <option value="$PROJECT_DIR$/gauntlet.html" />
         <option value="$PROJECT_DIR$/platform/platform.go" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/launcher.go" />
+        <option value="$PROJECT_DIR$/static/index.html" />
       </list>
     </option>
   </component>
@@ -189,6 +180,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/platform" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -487,16 +479,16 @@
       <created>1442141317485</created>
       <option name="number" value="Default" />
       <updated>1442141317485</updated>
-      <workItem from="1442141323924" duration="9723000" />
+      <workItem from="1442141323924" duration="13913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9723000" />
+    <option name="totallyTimeSpent" value="13913000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="27" width="1374" height="745" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -514,7 +506,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -528,7 +520,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -584,31 +578,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/jquery-2.1.4.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34859154">
+          <caret line="2" column="8233" selection-start-line="2" selection-start-column="8233" selection-end-line="2" selection-end-column="8233" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/lib64/go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36923078">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1964" column="5" selection-start-line="1964" selection-start-column="5" selection-end-line="1964" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0490367">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platform/platform.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding>
-            <element signature="e#18#71#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-0.44781145">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/launcher.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08080808">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#70#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.34006733">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>

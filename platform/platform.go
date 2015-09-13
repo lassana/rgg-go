@@ -75,10 +75,11 @@ func readGames(filePath string) ([]string, error) {
 
 func RandomGameFor(platform string) string {
 	if ( ! isValidPlatform(platform)) {
-		log.Printf("'%s' requested as a platform", platform)
+		log.Printf("'%s' requested as a platform, drop it", platform)
 		return ""
 	}
-	filePath := "retro-gauntlet/cgi-bin/systems/" + platform;
+	log.Printf("'%s' requested as a platform, handle it", platform)
+	filePath := "platforms/" + platform;
 	gameList, err := readGames(filePath)
 	if ( err == nil) {
 		rand.Seed(time.Now().UTC().UnixNano())
