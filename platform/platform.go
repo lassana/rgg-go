@@ -65,6 +65,6 @@ func getLocalFilename(platform Platform) (rvalue string) {
 }
 
 func GetFilenameFor(platform Platform) (filename string) {
-	filename = "systems/" + getLocalFilename(platform) + ".txt"
+	filename = "retro-gauntlet/www/systems" + getLocalFilename(platform) + ".txt"
 	return
 }
