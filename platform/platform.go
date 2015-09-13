@@ -3,9 +3,9 @@ package platform
 import (
 	"os"
 	"bufio"
-	"fmt"
 	"math/rand"
 	"time"
+	"log"
 )
 
 type Platform int
@@ -30,46 +30,32 @@ const (
 	TG16
 )
 
-func localFilename(platform Platform) (rvalue string) {
-	switch platform {
-	case AMIGA:
-		rvalue = "amiga"
-	case C64:
-		rvalue = "c64"
-	case DOS:
-		rvalue = "dos"
-	case DREAMCAST:
-		rvalue = "dreamcast"
-	case GAMEGEAR:
-		rvalue = "gamegear"
-	case GBA:
-		rvalue = "gba"
-	case GBC:
-		rvalue = "gbc"
-	case MAME:
-		rvalue = "mame"
-	case MASTERSYSTEM:
-		rvalue = "mastrsystem"
-	case MEGADRIVE:
-		rvalue = "megadrive"
-	case N64:
-		rvalue = "n64"
-	case NEOGEO:
-		rvalue = "neogeo"
-	case NES:
-		rvalue = "nes"
-	case PS1:
-		rvalue = "ps1"
-	case SATURN:
-		rvalue = "saturn"
-	case SNES:
-		rvalue = "snes"
-	case TG16:
-		rvalue = "tg16"
-	default:
-		rvalue = ""
+func isValidPlatform(platform string) bool {
+	gamesList := []string {
+		"amiga",
+		"c64",
+		"dos",
+		"dreamcast",
+		"gamegear",
+		"gba",
+		"gbc",
+		"mame",
+		"mastrsystem",
+		"megadrive",
+		"n64",
+		"neogeo",
+		"nes",
+		"ps1",
+		"saturn",
+		"snes",
+		"tg16",
 	}
-	return
+	for _, b := range gamesList {
+		if b == platform {
+			return true
+		}
+	}
+	return false
 }
 
 func readGames(filePath string) ([]string, error) {
@@ -87,18 +73,18 @@ func readGames(filePath string) ([]string, error) {
 	return games, nil
 }
 
-func RandomGameForPlatform(platform string) string {
+func RandomGameFor(platform string) string {
+	if ( ! isValidPlatform(platform)) {
+		log.Printf("'%s' requested as a platform", platform)
+		return ""
+	}
 	filePath := "retro-gauntlet/cgi-bin/systems/" + platform;
 	gameList, err := readGames(filePath)
 	if ( err == nil) {
 		rand.Seed(time.Now().UTC().UnixNano())
 		return gameList[rand.Intn(len(gameList))]
 	} else {
-		fmt.Printf("Cannot read games list from '%s'", filePath)
+		log.Printf("Cannot read games list from '%s'", filePath)
 		return ""
 	}
-}
-
-func RandomGameFor(platform Platform) string {
-	return RandomGameForPlatform(localFilename(platform))
 }

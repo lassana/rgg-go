@@ -4,22 +4,33 @@ import (
 	"./platform"
 	"fmt"
 	"os"
+	"net/http"
+	"log"
 )
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	webArgument := r.URL.Path[1:]
+	fmt.Fprintf(w, platform.RandomGameFor(webArgument))
+}
 
 func main() {
 	len := len(os.Args)
+	// Note that first parameter is not app argument
 	if ( len == 1 ) {
-		fmt.Println("Web server is not implemented yet.")
-	} else if (len == 2 ) { // Note that first parameter is not app argument
+		log.Println("Start HTTP server on :8080.")
+		http.HandleFunc("/", handler)
+		http.ListenAndServe(":8080", nil)
+	} else if (len == 2 ) {
 		argument := os.Args[1]
 		if (argument == "--help") {
 			printUsage()
 		} else {
-			fmt.Println(platform.RandomGameForPlatform(argument))
+			fmt.Println(platform.RandomGameFor(argument))
 		}
 	} else {
 		printUsage()
 	}
+	log.Println("App is closed now")
 }
 
 func printUsage() {
