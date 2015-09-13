@@ -1,7 +1,6 @@
 package main
 
 import (
-	"./platform"
 	"fmt"
 	"os"
 	"net/http"
@@ -11,25 +10,35 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	webArgument := r.URL.Path[1:]
-	//webArgument := r.URL.Path[strings.LastIndex('/', r.URL)]
-	fmt.Fprintf(w, platform.RandomGameFor(strings.Trim(webArgument, "platform/")))
+	log.Printf("Handle request '%s'", webArgument)
+	webArgument = strings.Replace(webArgument, "platform/", "", 1)
+	//webArgument = strings.Replace(webArgument, "/", "", 1)
+	fmt.Fprintf(w, randomGameFor(webArgument))
 }
 
 func main() {
 	len := len(os.Args)
 	// Note that first parameter is not app argument
 	if ( len == 1 ) {
-		log.Println("Start HTTP server on :8080.")
+		log.Println("Start HTTP server...")
 		http.HandleFunc("/platform/", handler)
 		http.Handle("/", http.FileServer(http.Dir("static/")))
-		panic(http.ListenAndServe(":8080", nil))
+		ip := os.Getenv("OPENSHIFT_GO_IP")
+		port := os.Getenv("OPENSHIFT_GO_PORT")
+		if (ip == "" || port == "" ) {
+			ip = "localhost"
+			port = "8080"
+		}
+		bind := fmt.Sprintf("%s:%s", ip, port)
+		fmt.Printf("listening on %s...", bind)
+		panic(http.ListenAndServe(bind, nil))
 		//panic(http.ListenAndServe(":8080", http.FileServer(http.Dir("static/"))))
 	} else if (len == 2 ) {
 		argument := os.Args[1]
 		if (argument == "--help") {
 			printUsage()
 		} else {
-			fmt.Println(platform.RandomGameFor(argument))
+			fmt.Println(randomGameFor(argument))
 		}
 	} else {
 		printUsage()

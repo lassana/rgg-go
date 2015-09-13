@@ -1,4 +1,4 @@
-package platform
+package main
 
 import (
 	"os"
@@ -40,7 +40,7 @@ func isValidPlatform(platform string) bool {
 		"gba",
 		"gbc",
 		"mame",
-		"mastrsystem",
+		"mastersystem",
 		"megadrive",
 		"n64",
 		"neogeo",
@@ -73,7 +73,7 @@ func readGames(filePath string) ([]string, error) {
 	return games, nil
 }
 
-func RandomGameFor(platform string) string {
+func randomGameFor(platform string) string {
 	if ( ! isValidPlatform(platform)) {
 		log.Printf("'%s' requested as a platform, drop it", platform)
 		return ""
