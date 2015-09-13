@@ -1,5 +1,13 @@
 package platform
 
+import (
+	"os"
+	"bufio"
+	"fmt"
+	"math/rand"
+	"time"
+)
+
 type Platform int
 
 const (
@@ -22,7 +30,7 @@ const (
 	TG16
 )
 
-func getLocalFilename(platform Platform) (rvalue string) {
+func localFilename(platform Platform) (rvalue string) {
 	switch platform {
 	case AMIGA:
 		rvalue = "amiga"
@@ -64,7 +72,33 @@ func getLocalFilename(platform Platform) (rvalue string) {
 	return
 }
 
-func GetFilenameFor(platform Platform) (filename string) {
-	filename = "retro-gauntlet/www/systems" + getLocalFilename(platform) + ".txt"
-	return
+func readGames(filePath string) ([]string, error) {
+	file, err := os.Open(filePath)
+	if ( err != nil) {
+		return nil, err
+	}
+	defer file.Close()
+
+	var games []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		games = append(games, scanner.Text())
+	}
+	return games, nil
+}
+
+func RandomGameForPlatform(platform string) string {
+	filePath := "retro-gauntlet/cgi-bin/systems/" + platform;
+	gameList, err := readGames(filePath)
+	if ( err == nil) {
+		rand.Seed(time.Now().UTC().UnixNano())
+		return gameList[rand.Intn(len(gameList))]
+	} else {
+		fmt.Printf("Cannot read games list from '%s'", filePath)
+		return ""
+	}
+}
+
+func RandomGameFor(platform Platform) string {
+	return RandomGameForPlatform(localFilename(platform))
 }
