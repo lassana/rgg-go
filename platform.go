@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"time"
 	"log"
+	"sync"
 )
 
 type Platform int
@@ -29,6 +30,8 @@ const (
 	SNES
 	TG16
 )
+
+var lock sync.Mutex
 
 func isValidPlatform(platform string) bool {
 	gamesList := []string {
@@ -77,15 +80,21 @@ func randomGameFor(platform string) string {
 	if ( ! isValidPlatform(platform)) {
 		log.Printf("'%s' requested as a platform, drop it", platform)
 		return ""
+	} else {
+
 	}
+	lock.Lock()
 	log.Printf("'%s' requested as a platform, handle it", platform)
 	filePath := "platforms/" + platform;
 	gameList, err := readGames(filePath)
+	var rvalue string
 	if ( err == nil) {
 		rand.Seed(time.Now().UTC().UnixNano())
-		return gameList[rand.Intn(len(gameList))]
+		rvalue = gameList[rand.Intn(len(gameList))]
 	} else {
 		log.Printf("Cannot read games list from '%s'", filePath)
-		return ""
+		rvalue = ""
 	}
+	lock.Unlock()
+	return rvalue
 }
